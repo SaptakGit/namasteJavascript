@@ -1,0 +1,22 @@
+Things learned:
+1. An inner function can be directly called using two parenthesis ()().
+2. Even parameters can be passed this way (Remember that the function needs to be returned to do this)
+3. Closures can also be used for data hiding and encapsulation. So other code cannot access this value.
+4. Unused variables are automatically deleted in High Level Programming language by garbage collector. Closures allocate a lot of memory which cannot be deleted so this acts as a disadvantage.
+5. Some browsers now have smart garbage collectors that automatically deletes variables that are not used outside closures.
+
+What is a Closure in JavaScript?
+Can you give an example of a Closure in JS?
+Use of double parenthesis  ()() in JS
+Are Let declarations closed over?
+Are function parameters closed over?
+Relation of Scope Chain and Closures
+Conflicting name Global variables in JS
+Advantages of Closure
+Data Hiding & Encapsulation in JavaScript?
+Example of Data Privacy using Closures
+Function Constructor in JavaScript
+Disadvantages of Closures?
+What is a Garbage Collector in JavaScript?
+Relation between Garbage Collection, Memory Leaks, and Closures?
+Example of Smart Garbage collection by V8 JS Engine in Chrome

@@ -1,0 +1,177 @@
+"Execution Context"
+	a) Memory Component(variable Environment) => all the variable and functions are stored as key:value pair
+	
+	b) Code Component(Thred of Execution) => here all the code executed one line at a time
+	
+"JavaScript is a synchronous single-threaded language"
+
+phase 1:
+memory creation phase:
+	js allocates memory to variable and functions
+	variable = as Undefined
+	functions = the whole function code 
+		
+phase 2:
+code execution phase:
+	variable = set the given value of variable in code
+	in case of function call it creates another execution context with only the indise part of the function. and repezt the process of phase 1 and phase 2.
+	
+	
+all the execution cantext are kept in a call stack.
+the main (global) is at bottom. onec the execution is done it removes from the stack.
+
+JavaScript Hoist
+
+if a JS file is empty(sortest JS function) it still js creates a window(in case of browser).
+window = it a global object along with a global execution context. here we have all the functions that are provided by JS Engine to us for use	
+
+here the "this" is point to this window
+this === window = True
+
+JS is a loosly(weekly) type language:
+it does not attach its variable to any particular data type. we can store any type of data in it
+
+Scope in JS is directely directly related with Lexical Environment
+
+Lexical = in heirarchy
+Lexical Environment is the local memory along with the 
+Lexical Environment of its parent
+
+Scope Chain is the process where we look for a varable or function in its Lexical Environment and Lexical Environment of its parent if it is not found n the local Execution Context menory
+
+let and const are hoisted but they are in the Temporal Dead Zone for the Time being
+
+let and const are also hoisted(allocated memory) but in separate memory space. It can not be accress untill we put some value in it.it will give referance error.
+
+temporala dead zone: the time between when the let/const variable is hoisted  to the time it is initialised with some value.
+
+redeclaration/ duplication of let is not possible. it will give a syntax error.
+
+const can not initialised later.It will give us a syntax error.it has to be initialised at time of declaration.
+
+re-initialisation of const gives a type error
+
+Type error
+Syntax error
+Referance Error
+
+block:{} is called a block. it is also called Compound Statement. The {} used to group multiple java script statement.
+
+ the block is used where java script expects a single statement.
+ 
+block scoped: what are all the variable and function we can access inside this block.
+
+let and const are hoisted inside the block scope if they are defind inside {}. where as var is hoisted in global scope.
+
+once the work of {} (block) is done the block scope is deleted.so let and const can not be access from outside {}. but var can be access since it is in global scope.
+
+shadowing
+illigal shadowing
+
+block scope also follow lexical scope
+
+
+Closure :Function bundled with its lexical environment is known as a closure. Whenever function is returned, even if its vanished in execution context but still it remembers the reference it was pointing to. Its not just that function alone it returns but the entire closure and that's where it becomes interesting
+
+
+setTimeout Problem with colsure:
+print 1 to 5 each after 1 sec delay =>
+
+function y(){
+    for(var i=1;i<=5;i++){
+        setTimeout(function(){ 
+            console.log(i);
+        },i*1000);
+    }
+    console.log("Namaster JS");
+}
+y();
+Res : 6 6 6 6 6 
+
+Sol 1:
+function y(){
+    for(let i=1;i<=5;i++){
+        setTimeout(function(){ 
+            console.log(i);
+        },i*1000);
+    }
+    console.log("Namaster JS");
+}
+y();
+Sol 2:
+function y(){
+    for(let i=1;i<=5;i++){
+		function close(j){
+			setTimeout(function(){ 
+				console.log(j);
+			},j*1000);
+		}
+        return close(i)
+    }
+    console.log("Namaster JS");
+}
+y();
+Res: 1 2 3 4 5
+
+Function Statement:
+	function a(){
+		console.log("a called")
+	}
+	this way of creating a function is called function statement
+
+Function Expression:
+	var b = function(){
+		console.log("b called")
+	}
+this way of creating a function is called function Expression
+
+Diff Statement and Expression:
+	The main differance is Hoisting
+	if a() and b() are called before declaration. a() will run as it is treated as a function at time of memory creation but b is breated as a variable and assinged as undefined and thus will throws a type error.
+
+Function Declaration:
+	Function Statement are also known as Function Declaration.
+	
+Anonymous Function:
+	A function without a name is an Anonymous Function.
+	function(){
+		
+	}
+	It is used when they are used as values. Like Function Expression. It can not be used as Function Statement. It will throw syntax error.
+	
+Named Function Expression:
+	IT is same as Function Expression but with a Named Function not an Anonymous Function.
+	var b = function xyz(){
+		console.log("b called")
+	}
+	
+	Corner Case:
+		calling xyz() -> referance error
+		it is not a function in the outer scope. but it is created as a local variable. so it can not be access from outside.
+		
+Difference between Parameters and Arguments:
+	function abc(param1, param2){
+	
+	}
+	param1, param2 ->local variable	
+	
+	abc(arg1, arg2) -> arguments
+	
+First Class Function:
+	The ability to use functions as values is named as First Class Function.We can pass Named/Anonymous Function as Arguments into a Function and also return Named/Anonymous functions from a Function.This is called as First Class Function.
+	It is also called First Class Citizens.
+	
+	
+What is Callback Function in JavaScript?
+	The function which is passed as an argument in a Function and called later is known as Callback Function.It gives us access to Asynchronus Operation.
+	
+Blocking the main thread:
+	If a piece of code thake too much time to execute, it create a blockage to the main thread/main call stack, sice javascript in a single threaded language. This can be reduce by doing long execution with Asynchronus Operation.
+	
+Event Listener:
+	Event Listener are Callback Functions that are invoke by an Event.
+	
+Garbage Collection & removeEventListeners:
+	eventListeners are heavy, it takes memory. They form a closure. So the call stack may be empty but they hold onto their Lexical values.
+
+	

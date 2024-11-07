@@ -1,0 +1,3 @@
+1. Undefined is like a placeholder till a variable is not assigned a value.
+2. undefined !== not defined
+3. JS- weakly typed language since it doesn't depend on data type declarations.
