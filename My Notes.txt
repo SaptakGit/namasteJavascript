@@ -173,5 +173,30 @@ Event Listener:
 	
 Garbage Collection & removeEventListeners:
 	eventListeners are heavy, it takes memory. They form a closure. So the call stack may be empty but they hold onto their Lexical values.
+	
+Web APIs:
+	SetTimeout()
+	DOM APIs(document.things...)
+	fetch()
+	local Storage
+	console
+	location
+	
+	These are not part of javascript. Browser provide us these to access inside js engine/call stack with the help of the global object 'window'.It raps up all the web api into the global object 'window'.
+	
+When a callback function is happen it does not directly to the call stack. It first put into a callback queue. then the Event Loop puts the callback function from Callback Queue to Call Stack.
+
+Event Loop:
+	Its only job is to continuously monitor the Callback Queue and the Call Stack.When ever it see the call stack is empty and a callback function in callback queue it puts the callback function into the call stack.
+
+Micro task queue:
+	It is same as callback queue but with higher priority.
+	
+All the callback function which comes through promises will go inside the microtask queue.
+
+mutation observer 
+
+Starvation of Callback Queue
+
 
 	
