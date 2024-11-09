@@ -198,5 +198,44 @@ mutation observer
 
 Starvation of Callback Queue
 
+Javascript Runtime Environment:
+	It has Js Engine, Web APIs, Callback Queue, Microtast Queue, Event Loop.
+	Js Engine is the heart of Javascript Runtime Environment
+	
+a JS Engine shloud follw ECMAScript language standard.
 
+Brandan Eick created Javascript and also the first js engine known as spider monkey(now use as js engine in mozila)
+
+Javascript Engine Architechture:
+	Parsing:
+		first it break down the js code into tokens
+		then the 'Syntax Parser' parse the whole code and converts it into AST (Advanced Syntax Tree).(https://astexplorer.net/)
+		
+	Compilation:
+		Interpretter ->Fast
+		Compiler -> Efficient
+		JS is besically an Interpretter. But most of the mordern Browser use JIT Compiler
+		JIT(Just In Time) Compilation:
+			It is Interpretter along with a compiler.
+			
+			optimizing process:
+				inlining
+				copy eligian
+				inline caching
+			
+		The Interpretter starts to interpret the AST and convert it into machine level language at the same time the compiler tries to optimize the AST in run time convert it into machine level language which later executed.
+			
+	Execution:
+		Memory Heap:
+			IT is the space where all the variable and functions assigned memory.
+			
+			garbadge Collector: it tries to free up memory space whenever possible. It uses an algorithm call 'Mark & Sweep'
+		Call Stack
+		
+Fastest Engine V8
+	Iterpertter name is 'Ignition'
+	Optimizing Compiler is 'Turbo Fan'
+	Gabadge Collector is 'Orinoco','Oilpalm'
+	
+	
 	
