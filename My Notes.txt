@@ -237,5 +237,12 @@ Fastest Engine V8
 	Optimizing Compiler is 'Turbo Fan'
 	Gabadge Collector is 'Orinoco','Oilpalm'
 	
+setTimeout does not always execute after the given time.If the call stack is full and a global execution context is running in the call stack the setTimeout callback will wait in callback queue and wait untill tue call is empty.This is known as 'Concurrency Model' in javascript.
+
+Functional Programming is not posible with out Higher order Function.
+Higher order Function:
+	A function which takes another function as an argument or returns a function from it is known as higher order function.
+	
+	
 	
 	
