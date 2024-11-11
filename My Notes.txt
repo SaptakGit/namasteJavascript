@@ -1,3 +1,4 @@
+CHAPTOR - 4:
 "Execution Context"
 	a) Memory Component(variable Environment) => all the variable and functions are stored as key:value pair
 	
@@ -22,6 +23,8 @@ the main (global) is at bottom. onec the execution is done it removes from the s
 
 JavaScript Hoist
 
+CHAPTOR - 5:
+
 if a JS file is empty(sortest JS function) it still js creates a window(in case of browser).
 window = it a global object along with a global execution context. here we have all the functions that are provided by JS Engine to us for use	
 
@@ -31,6 +34,8 @@ this === window = True
 JS is a loosly(weekly) type language:
 it does not attach its variable to any particular data type. we can store any type of data in it
 
+CHAPTOR - 7:
+
 Scope in JS is directely directly related with Lexical Environment
 
 Lexical = in heirarchy
@@ -38,6 +43,8 @@ Lexical Environment is the local memory along with the
 Lexical Environment of its parent
 
 Scope Chain is the process where we look for a varable or function in its Lexical Environment and Lexical Environment of its parent if it is not found n the local Execution Context menory
+
+CHAPTOR - 8:
 
 let and const are hoisted but they are in the Temporal Dead Zone for the Time being
 
@@ -55,6 +62,8 @@ Type error
 Syntax error
 Referance Error
 
+CHAPTOR - 9:
+
 block:{} is called a block. it is also called Compound Statement. The {} used to group multiple java script statement.
 
  the block is used where java script expects a single statement.
@@ -70,9 +79,11 @@ illigal shadowing
 
 block scope also follow lexical scope
 
+CHAPTOR - 10:
 
 Closure :Function bundled with its lexical environment is known as a closure. Whenever function is returned, even if its vanished in execution context but still it remembers the reference it was pointing to. Its not just that function alone it returns but the entire closure and that's where it becomes interesting
 
+CHAPTOR - 10:
 
 setTimeout Problem with colsure:
 print 1 to 5 each after 1 sec delay =>
@@ -112,6 +123,8 @@ function y(){
 }
 y();
 Res: 1 2 3 4 5
+
+CHAPTOR - 13:
 
 Function Statement:
 	function a(){
@@ -160,7 +173,9 @@ Difference between Parameters and Arguments:
 First Class Function:
 	The ability to use functions as values is named as First Class Function.We can pass Named/Anonymous Function as Arguments into a Function and also return Named/Anonymous functions from a Function.This is called as First Class Function.
 	It is also called First Class Citizens.
-	
+
+
+CHAPTOR - 14:
 	
 What is Callback Function in JavaScript?
 	The function which is passed as an argument in a Function and called later is known as Callback Function.It gives us access to Asynchronus Operation.
@@ -197,6 +212,8 @@ All the callback function which comes through promises will go inside the microt
 mutation observer 
 
 Starvation of Callback Queue
+
+CHAPTOR - 16:
 
 Javascript Runtime Environment:
 	It has Js Engine, Web APIs, Callback Queue, Microtast Queue, Event Loop.
