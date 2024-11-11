@@ -316,6 +316,49 @@ curr = current: it represents the value of the array.here ir is arr[i].
 The second argument of reduce function is 0, it is the initialization of the accumulator like sum = 0.
 
 map, fileter reduce can be done one after another. this is called Chaining
+
+Callback Hell:
+When a callback is inside another callback , and it is another callback like a nested callbacks, it is called Callback Hell, it is also called 'Pyramid of Doom'
+
+Inversion of Control:
+Kalye Jemson=> when we lost control over our codes while we use call backs.Because we pass the function to other function and we have no control over te passed function while it is inside other function.
+
+Promises: Promises are tu to handle Ashync operation in javascript.
+It is like an empty object with some data value. At firset it gives us an empty objet and after some time, whatever time it takes to complete it will autometically filled with the data value.
+After that will will attach a callback function to the Promise object with the '.then'.
+Whenever the data is filled in the promise object the .then will autometically call the callback function.
+promiseState: 'Pending' -> 'fullfilled' ; (Rejected) 
+promiseResult: 'Undefined' -> Response
+
+promise object is immmutable
+
+What is Promise ?
+A promise is an object representation the eventual completion or failure of an asynchronous operation.
+
+Promise Chaning:
+It is the solution of callback hell using promise.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 	
 	
 	
