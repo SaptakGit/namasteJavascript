@@ -417,6 +417,79 @@ Creating a promise:
 			resolve("Payment Successfull")
 		})
 	}
+	
+
+Season 02 - Ep 04:
+async await:
+
+What is async?
+	async is a key word to create a async function
+	1)this async function always return a promise.
+	2) if any value is returned in place of promise it will wrape it in a promise and return it
+	
+	
+async/await use to handle promises
+	
+	
+what is await ?
+	await is a key word that can only be used inside of a async function.
+	
+	
+	
+Now async works behind the scence ?
+	when an async function gets an await promise, it suspend the function execution and move the function out of the call stack. When the promise is resolved it will again appear in the call stack and start execution from where it left.
+	In the mean time if multiple promises are resolved it will execute all of them synchronously.
+	and if it found another promise which is still not resolved it will suspend the execution again.
+	
+	
+Examples of using async/await:
+
+	Demo Api = https://api.github.com/
+	
+	const API_URL = "https://api.github.com/users/SaptakGit"
+	async function haldlePromise(){
+		const data = await fetch(API_URL);
+		
+		//fetch() => response.json() => jsonValue
+		
+		const jsonValue = await data.json();
+		
+		console.log(jsonValue);
+	}
+	haldlePromise();
+	
+	
+Error Handling:
+
+	we will use try/catch to handle error here.
+	
+	const API_URL = "https://api.github.com/users/SaptakGit"
+	async function haldlePromise(){
+		try{
+			const data = await fetch(API_URL);
+		
+			//fetch() => response.json() => jsonValue
+			
+			const jsonValue = await data.json();
+			
+			console.log(jsonValue);
+		}
+		catch(err){
+			console.log(err);
+		}
+		
+	}
+	haldlePromise();
+
+
+Interviews:
+
+	recap of this chaptor
+
+
+Async await vs Promise/.then/.catch:
+	
+	Async/Await is syntactical sugar ovar promise/.then/.catch
 
 
 
