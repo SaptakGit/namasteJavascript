@@ -490,8 +490,29 @@ Interviews:
 Async await vs Promise/.then/.catch:
 	
 	Async/Await is syntactical sugar ovar promise/.then/.catch
+	
+	
+S.02 Ep.05
+Promise APIs + Interview Questions
 
+Promise API:
+	Promise.all() : 
+		parallal API calls.
+		it takes an iterable(array) promises as input.
+		it return an array of objects with all the results.It will wait for all of them to finish and return together as an array.
+		if any of the promises get rejected promise.all() will throw an error.it will not wait for other promises to settele.
+		
+	promise.allSetteled(): 
+		If any of the promises is gets rejected it will wait for all promises to get setteled.After that it will retun as an array  of objects along with the error.
 
+	promise.race():
+		it takes iterable(array) of promises.
+		Whatever promise is settled first it will return that result only.If the first settled promise is rejected it will throw an error.It will not wait for other promises to settle.
+		
+	promise.any():
+		it takes iterable(array) of promises. 
+		It will wait for first promise to get success/resolved/fullfilled and return the successful result only.
+		If all the promise gets failed it will return an Aggregated Error.It will be an array of all errors.
 
 
 
