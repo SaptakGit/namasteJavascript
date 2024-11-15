@@ -515,8 +515,100 @@ Promise API:
 		If all the promise gets failed it will return an Aggregated Error.It will be an array of all errors.
 
 
-
-
+S.02 Ep.06
+this keyword in JavaScript:
+	
+	//this in global space
+		this keyword in global space will always have the global object.
+		global object can be different, depends upon where th javascript is running. in Browser it is window. in Node js it is Global.
+		
+		
+	//this inside a function
+		the value of this depends on strict/non-strict mode.
+		if it is non-strict mode then value is window object.
+		if it is strict mode it is undefined.
+		
+		
+	//this in non-strict mode - (this substitution)
+		this key word works differently in strict mode and non-strict mode.
+		'this substitution' happens in non-strict mode.
+		according to the 'this substitution' if the value of this keyword is 'undefined' or 'null' this keyword will value be replaced with global object if it is used in non-strict mode. 
+	
+	// this keyword value depends on how the function is called (window)
+		in strict mode
+		x() => undefined
+		window.x() => window object
+		
+		when it is call without any referance of an object then it will return undefined.
+		when it is called with any referance of an object it will return that calling object
+			
+		
+	
+	// this inside an object's method
+		if a function is part of an object then it is known as a method.
+		const obj = {
+			a:10
+			x:function(){
+				console.log(this); // (1)
+				console.log(this.a); // (2)
+			}
+		}
+		obj.x();
+		
+		(1) the value of this keyword will be the object itself
+		(2) the value of this keyword will be the property a, hence 10
+		
+		
+	// call apply bind methods (sharing methods)
+		call():
+		it is used when we have to share methods. it can overwrite the value of 'this' of an object when it is called from another object. 
+		
+		const student = {
+			name:"abc"
+			printName:function(){
+				console.log(this.name); 
+			}
+		}
+		student.printName();
+		
+		const student2 = {
+			name:"xyz"
+		}
+		
+		student.printName.call(student2); // the value of 'this' will become 'xyz'
+		
+		apply, bind homework
+		
+	// this inside arrow function
+		arrow function do not have their own 'this'.
+		they take the value of their enclosing lexical environment.
+		const obj = {
+			a:10
+			x:() => {
+				console.log(this); 
+			}
+		}
+		obj.x();
+		=> window object, since the obj is declared in global space.
+		
+		
+	// this inside nested arrow function
+		const obj2 = {
+			a:10
+			x:function(){
+				const y = () =>{
+					console.log(this); 
+				};
+				y();
+			}
+		}
+		obj2.x();
+		=> the object obj2,since the arrow function is enclosed in obj2.
+		
+		
+	// this insode DOM
+		the value of 'this' is referance to HTML element.
+		
 
 
 
