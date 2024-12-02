@@ -562,22 +562,84 @@ this keyword in JavaScript:
 	// call apply bind methods (sharing methods)
 		call():
 		it is used when we have to share methods. it can overwrite the value of 'this' of an object when it is called from another object. 
-		
-		const student = {
-			name:"abc"
-			printName:function(){
-				console.log(this.name); 
+
+		example-1:
+			const student = {
+				name:"abc"
+				printName:function(){
+					console.log(this.name); 
+				}
 			}
-		}
-		student.printName();
+			student.printName();
+			
+			const student2 = {
+				name:"xyz"
+			}
+			
+			student.printName.call(student2); // the value of 'this' will become 'xyz'
+
+		example-2:
+			let name = {
+				firstname = "Akshay",
+				lastname = "Saini",
+			}
+
+			let printFullName = function(hometown, state){ // we can also pass additional arguments to the function also
+				console.log(this.firstname + " " + this.lastname + " from " + hometown + " " + state)
+			}
+
+			let name2 = {
+				firstname = "Sachin"
+				lastname = "Tendulkar"
+			}
+
+			printFullName.call(name,"Dehradun","Uttrakhand")
+			printFullName.call(name2,"Mumbai","Maharastra")
 		
-		const student2 = {
-			name:"xyz"
-		}
+
+		apply() : The only differance between call and apply method is the way we pass arguments. In apply we pass the all the extra arguments as a single 2nd argument in array list.
+
+		example-1:
+			let name = {
+				firstname = "Akshay",
+				lastname = "Saini",
+			}
+
+			let printFullName = function(hometown, state){
+				console.log(this.firstname + " " + this.lastname + " from " + hometown + " " + state)
+			}
+
+			let name2 = {
+				firstname = "Sachin"
+				lastname = "Tendulkar"
+			}
+
+			printFullName.call(name,"Dehradun","Uttrakhand")
+			printFullName.apply(name2,["Mumbai","Maharastra"])
+
+		bind():It looks exactly the same as call() method. But the only differance is instead of directly calling this method over here the bind method binds this method printFullName with an object and retunrs us the copy of that method. It will create a copy of printFullName and it will bind tha to name2 object and will return a function. The catch over here is that it dosen't call the method directly like call method rather than it will return us a method which can be call later.So this used to just bind and keep a copy of that method to use it later. The only difference between call() and bind() it that it gives us the copy to use it later rather than directly invoking it.
+
+		example-1:
+			let name = {
+				firstname = "Akshay",
+				lastname = "Saini",
+			}
+
+			let printFullName = function(hometown, state){
+				console.log(this.firstname + " " + this.lastname + " from " + hometown + " " + state)
+			}
+
+			let name2 = {
+				firstname = "Sachin"
+				lastname = "Tendulkar"
+			}
+
+			let printMyName = printFullName.bind(name2,"Mumbai","Maharastra")
+			console.log(printMyName)
+			printMyName()
+
+
 		
-		student.printName.call(student2); // the value of 'this' will become 'xyz'
-		
-		apply, bind homework
 		
 	// this inside arrow function
 		arrow function do not have their own 'this'.
