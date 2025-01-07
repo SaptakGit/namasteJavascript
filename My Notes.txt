@@ -639,6 +639,23 @@ this keyword in JavaScript:
 			printMyName()
 
 
+                       // All Example
+			let name = {
+			    firstname : "Saptak",
+			    lastname : "das",
+			};
+			
+			let printFullName = function(hometown,state,calltype){
+			    firstname = 'Amit';
+			    lastname = 'Biswas'
+			    console.log(calltype+': '+this.firstname+' '+this.lastname+' from '+hometown+', '+state);
+			};
+			
+			printFullName('Kolkata','Kolkata','normal');
+			printFullName.call(name,'Bolpur','West Bengal','call');
+			printFullName.apply(name,['Bolpur','West Bengal','apply']);
+			let printName = printFullName.bind(name,'Bolpur','West Bengal','bind');
+			printName();
 		
 		
 	// this inside arrow function
