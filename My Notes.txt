@@ -340,8 +340,13 @@ Namaste Javascript
     },0);
     console.log(output);
 
+    The reduce() function in JavaScript accepts two parameters: a callback function and an optional initial value. 
+    The callback function itself can take up to four parameters.
+
     acc = accumulator:It is used to accumulate the values or accumulate the result which we will get from those values. hare it is sum
     curr = current: it represents the value of the array.here ir is arr[i].
+    Current Index: (optional):  This is the index of the current element being processed. 
+    Array: (optional): This is the original array that reduce() was called on.
 
     The second argument of reduce function is 0, it is the initialization of the accumulator like sum = 0.
 
